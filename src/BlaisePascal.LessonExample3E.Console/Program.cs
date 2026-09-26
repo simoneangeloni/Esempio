@@ -3,9 +3,11 @@
     // Metodo di entrata per esecuzione del codice
   public static void Main()
     {
-       Console.WriteLine("Benvenuto nella Easy Class 3E");
-
-        int numeroPacchiComprati = 2;
+        Console.WriteLine("Inserisci il nome del cliente");
+        string nomeCliente = Console.ReadLine();
+        Console.WriteLine($"Benvenuto {nomeCliente} nella Easy Class 3E");
+        Console.WriteLine("Inserisci il numero di pacchi che vuoi spedire");
+        int numeroPacchiComprati = int.Parse(Console.ReadLine());
         int costoSpediziioneSingoloPacco = 5;
         string tipoConsegna = "Standard";
         int costoTotale = costoSpediziioneSingoloPacco + numeroPacchiComprati;
