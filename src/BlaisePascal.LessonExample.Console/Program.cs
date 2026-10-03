@@ -1,4 +1,6 @@
-﻿public class Program //Questa è una classe
+﻿using BlaisePascal.LessonExample3E.Domain;
+
+public class Program //Questa è una classe
 {
     // Metodo di entrata per esecuzione del codice
     public static void Main()
@@ -14,6 +16,10 @@
         int costoTotale = costoSpediziioneSingoloPacco + numeroPacchiComprati;
         Console.WriteLine($"il tipo di consegna scelto è: {tipoConsegna}");
         Console.WriteLine("Il costo totale della spedizione è: " + costoTotale + " euro");
-       
+        Enemy newEnemy = new Enemy();
+        Vehicle newVehicle = new Vehicle("ab34");
+        string license =newVehicle.LicensePlate;
+
+
     }
 }
