@@ -11,7 +11,7 @@ namespace BlaisePascal.LessonExample3E.Domain
         private double _dailyRate;
         private double _fuelLevelPercentage;
 
-        public string LicensePlate { get; private set; }
+        public string LicensePlate { get; private set; }//TODO: validazione della targa
         public int OdometerKm
         {
             get
@@ -46,7 +46,7 @@ namespace BlaisePascal.LessonExample3E.Domain
         /// <param name="licensePlate"></param>
         public Vehicle(string licensePlate)
         {
-            //TODO: validazione della targa
+            
             LicensePlate = licensePlate; //chiama al set           
         }
 
