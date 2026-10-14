@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BlaisePascal.LessonExample3E.Domain
 {
@@ -18,7 +19,16 @@ namespace BlaisePascal.LessonExample3E.Domain
                 return _licensePlate;
 
             } private set { 
-                
+              string licensePlate = value.Trim().ToUpper();
+                if(Regex.IsMatch(licensePlate, @"^[A-Z]{2}[0-9]{3}[A-Z]{2}$"))
+                {
+                    _licensePlate = licensePlate;
+                }
+                else
+                {
+                    throw new ArgumentException($"value not allowed {nameof(LicensePlate)}: {value} ");
+                }
+
             }
         }//TODO: validazione della targa
         public int OdometerKm
@@ -56,7 +66,7 @@ namespace BlaisePascal.LessonExample3E.Domain
         public Vehicle(string licensePlate) : this(licensePlate, 0, 0, 100) //chiamata al costruttore con 4 parametri
         {
             
-            LicensePlate = licensePlate; //chiama al set           
+            //chiama al set           
         }
 
         /// <summary>
