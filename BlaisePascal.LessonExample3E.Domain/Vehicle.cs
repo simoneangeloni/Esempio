@@ -10,8 +10,17 @@ namespace BlaisePascal.LessonExample3E.Domain
         private int _odometerKm;
         private double _dailyRate;
         private double _fuelLevelPercentage;
+        private string _licensePlate;
 
-        public string LicensePlate { get; private set; }//TODO: validazione della targa
+        public string LicensePlate { 
+            get 
+            {
+                return _licensePlate;
+
+            } private set { 
+                
+            }
+        }//TODO: validazione della targa
         public int OdometerKm
         {
             get
@@ -44,7 +53,7 @@ namespace BlaisePascal.LessonExample3E.Domain
         /// metodo costruttore che inizializza la targa del veicolo
         /// </summary>
         /// <param name="licensePlate"></param>
-        public Vehicle(string licensePlate)
+        public Vehicle(string licensePlate) : this(licensePlate, 0, 0, 100) //chiamata al costruttore con 4 parametri
         {
             
             LicensePlate = licensePlate; //chiama al set           
@@ -60,7 +69,7 @@ namespace BlaisePascal.LessonExample3E.Domain
         public Vehicle(string licensePlate, int odometerKm,
             double dailyRate, double fuelLevelPercentage)
         {
-            LicensePlate = licensePlate;
+            LicensePlate = licensePlate; //chiamata al set
             OdometerKm = odometerKm; //chiamata al set
             DailyRate = dailyRate;
             FuelLevelPercentage = fuelLevelPercentage;
