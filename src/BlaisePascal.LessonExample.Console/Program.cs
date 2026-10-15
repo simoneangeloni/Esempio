@@ -9,7 +9,7 @@ public class Program //Questa è una classe
         //Vehicle vehicle2 = new Vehicle(); //non esiste un costruttore senza parametri definito nella classe, quindi non è possibile creare un oggetto Vehicle senza passare almeno la targa come parametro
         try
         {
-            Vehicle vehicle = new Vehicle("ab",1,50.75,2.4);
+            Vehicle vehicle = new Vehicle("ab123qv",1,50.75,2.4);
             string license = vehicle.LicensePlate;
             Console.WriteLine(vehicle.LicensePlate);
             /*

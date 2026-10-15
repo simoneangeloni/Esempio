@@ -13,24 +13,33 @@ namespace BlaisePascal.LessonExample3E.Domain
         private double _fuelLevelPercentage;
         private string _licensePlate;
 
+        public static int MaxFuelLevelPercentage { get; } =100;
+
         public string LicensePlate { 
             get 
             {
                 return _licensePlate;
 
-            } private set { 
-              string licensePlate = value.Trim().ToUpper();
-                if(Regex.IsMatch(licensePlate, @"^[A-Z]{2}[0-9]{3}[A-Z]{2}$"))
-                {
-                    _licensePlate = licensePlate;
-                }
+            } private set
+            {
+
+                if (string.IsNullOrWhiteSpace(value) || value.Length != 7)
+                    throw new ArgumentException($"value not allowed {nameof(LicensePlate)}: {value} ");
                 else
                 {
-                    throw new ArgumentException($"value not allowed {nameof(LicensePlate)}: {value} ");
-                }
+                    string licensePlate = value.Trim().ToUpper();
+                    if (Regex.IsMatch(licensePlate, @"[A-Z]{2}[0-9]{3}[A-Z]{2}"))
+                    {
+                        _licensePlate = licensePlate;
+                    }
+                    else
+                    {
+                        throw new ArgumentException($"value not allowed {nameof(LicensePlate)}: {value} ");
+                    }
 
+                }
             }
-        }//TODO: validazione della targa
+        }
         public int OdometerKm
         {
             get
@@ -58,6 +67,8 @@ namespace BlaisePascal.LessonExample3E.Domain
             }
         }
 
+        
+
 
         /// <summary>
         /// metodo costruttore che inizializza la targa del veicolo
@@ -65,7 +76,6 @@ namespace BlaisePascal.LessonExample3E.Domain
         /// <param name="licensePlate"></param>
         public Vehicle(string licensePlate) : this(licensePlate, 0, 0, 100) //chiamata al costruttore con 4 parametri
         {
-            
             //chiama al set           
         }
 
